@@ -111,7 +111,7 @@ public class Cliente implements Serializable{
 		this.nome = nome;
 		this.email = email;
 		this.cpfChpj = cpfChpj;
-		this.tipoCliente = tipoCliente.getCod();
+		this.tipoCliente = tipoCliente == null ? null : tipoCliente.getCod();
 	}
 
 	@Override
