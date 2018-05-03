@@ -31,6 +31,8 @@ public class ItemPedidoPK implements Serializable{
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

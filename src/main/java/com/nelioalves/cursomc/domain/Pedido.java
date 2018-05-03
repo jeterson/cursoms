@@ -95,6 +95,14 @@ public class Pedido implements Serializable{
 	public void setEnderecoEntrega(Endereco enderecoEntrega) {
 		this.enderecoEntrega = enderecoEntrega;
 	}
+	
+	public Double getValorTotal() {
+		Double soma = 0.0;
+		for(ItemPedido ip : itens) {
+			soma += ip.getSubTotal();
+		}
+		return soma;
+	}
 
 	@Override
 	public int hashCode() {
