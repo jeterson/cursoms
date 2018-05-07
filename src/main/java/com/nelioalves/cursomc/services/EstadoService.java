@@ -16,7 +16,7 @@ public class EstadoService {
 	private EstadoRepository estadoRepository;
 	
 	
-	public List<Estado> findAllByOrderByName(){
+	public List<Estado> findAll(){
 		return estadoRepository.findAllByOrderByNome();
 	}
 	

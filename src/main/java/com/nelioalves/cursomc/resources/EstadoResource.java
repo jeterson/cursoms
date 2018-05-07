@@ -29,7 +29,7 @@ public class EstadoResource {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<List<EstadoDTO>> findAllByOrderByName() {
-		List<Estado> obj = service.findAllByOrderByName();
+		List<Estado> obj = service.findAll();
 		List<EstadoDTO> listDto = obj.stream().map(o -> new EstadoDTO(o)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDto);
 	}
