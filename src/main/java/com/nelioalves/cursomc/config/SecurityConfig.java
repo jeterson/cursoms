@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private static final String[] PUBLIC_MATCHES = { "/h2-console/**" };
 
 	private static final String[] PUBLIC_MATCHES_GET = { "/produtos/**", "/categorias/**" };
-	private static final String[] PUBLIC_MATCHES_POST = { "/clientes/**"};
+	private static final String[] PUBLIC_MATCHES_POST = { "/clientes/**", "/auth/forgot/**"};
 
 	@Autowired
 	private Environment env;
@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.cors().and().csrf().disable();
 		http.authorizeRequests()
 			.antMatchers(HttpMethod.GET, PUBLIC_MATCHES_GET).permitAll()
-			.antMatchers(HttpMethod.GET, PUBLIC_MATCHES_POST).permitAll()
+			.antMatchers(HttpMethod.POST, PUBLIC_MATCHES_POST).permitAll()
 			.antMatchers(PUBLIC_MATCHES).permitAll()
 			.anyRequest().authenticated();
 		http.addFilter(new JWTAuthenticationFilter(jwtUtil, authenticationManager()));
