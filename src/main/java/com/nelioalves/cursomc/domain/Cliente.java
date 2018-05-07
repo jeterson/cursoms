@@ -39,6 +39,7 @@ public class Cliente implements Serializable{
 	@JsonIgnore
 	private String senha;
 	
+	private String imgUrl;
 	
 	public Cliente() {
 		addPerfil(Perfil.CLIENTE);
@@ -174,6 +175,14 @@ public class Cliente implements Serializable{
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 	
 	
