@@ -193,7 +193,27 @@ public class ClienteNewDTO implements Serializable {
 	}
 	
 	
-	
+	@Override
+	public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+		sb.append("ClienteNewDTO(");
+		sb.append("nome="+nome + ", ");
+		sb.append("email="+email + ", ");
+		sb.append("senha="+senha + ", ");
+		sb.append("cpfChpj="+cpfChpj + ", ");
+		sb.append("logradouro="+logradouro + ", ");
+		sb.append("bairro="+bairro + ", ");
+		sb.append("cep="+cep + ", ");
+		sb.append("complemento="+complemento + ", ");
+		sb.append("numero="+numero + ", ");
+		sb.append("telefone1="+telefone1 + ", ");
+		sb.append("telefone2="+telefone2 + ", ");
+		sb.append("telefone3="+telefone3 + ") ");
+		
+		
+		return sb.toString();
+	}
 	
 	
 }

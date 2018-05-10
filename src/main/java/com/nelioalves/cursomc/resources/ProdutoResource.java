@@ -31,20 +31,16 @@ public class ProdutoResource {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<Page<ProdutoDTO>> findPage(
+			@RequestParam(value="nome", defaultValue="") String nome, 
+			@RequestParam(value="categorias", defaultValue="") String categorias, 
 			@RequestParam(value="page", defaultValue="0") Integer page, 
 			@RequestParam(value="linesPerPage", defaultValue="24") Integer linesPerPage, 
 			@RequestParam(value="orderBy", defaultValue="nome") String orderBy, 
-			@RequestParam(value="direction", defaultValue="ASC") String direction,
-			@RequestParam(value="nome", defaultValue="0") String nome,
-			@RequestParam(value="categorias", defaultValue="0") String categorias) {
-		
-		List<Integer> ids = URL.decodeIntList(categorias);
+			@RequestParam(value="direction", defaultValue="ASC") String direction) {
 		String nomeDecoded = URL.decodeParam(nome);
+		List<Integer> ids = URL.decodeIntList(categorias);
 		Page<Produto> list = service.search(nomeDecoded, ids, page, linesPerPage, orderBy, direction);
-		
-		Page<ProdutoDTO> produtosDTO = list.map(o -> new ProdutoDTO(o));
-		
-		
-		return ResponseEntity.ok().body(produtosDTO);
+		Page<ProdutoDTO> listDto = list.map(obj -> new ProdutoDTO(obj));  
+		return ResponseEntity.ok().body(listDto);
 	}
 }

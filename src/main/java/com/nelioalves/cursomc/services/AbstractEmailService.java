@@ -33,6 +33,8 @@ public abstract class AbstractEmailService implements EmailService{
 
 		SimpleMailMessage sm = prepareSimpleMailMessageFromPedido(obj);
 		sendEmail(sm);
+		
+		
 	}
 	
 	@Override
